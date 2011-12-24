@@ -213,7 +213,7 @@ Copies the URL into the kill ring.
 With a prefix argument, makes a private paste."
   (interactive "P")
   (condition-case nil
-      (gist-region (point) (mark) private)
+      (gist-region (point) (let (mark-even-if-inactive) (mark)) private)
       (mark-inactive (gist-buffer private))))
 
 ;;;###autoload
